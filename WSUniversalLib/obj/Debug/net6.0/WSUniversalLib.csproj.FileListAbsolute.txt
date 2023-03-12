@@ -1,0 +1,12 @@
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\bin\Debug\net6.0\WSUniversalLib.deps.json
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\bin\Debug\net6.0\WSUniversalLib.dll
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\bin\Debug\net6.0\WSUniversalLib.pdb
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\obj\Debug\net6.0\WSUniversalLib.csproj.AssemblyReference.cache
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\obj\Debug\net6.0\WSUniversalLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\obj\Debug\net6.0\WSUniversalLib.AssemblyInfoInputs.cache
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\obj\Debug\net6.0\WSUniversalLib.AssemblyInfo.cs
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\obj\Debug\net6.0\WSUniversalLib.csproj.CoreCompileInputs.cache
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\obj\Debug\net6.0\WSUniversalLib.dll
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\obj\Debug\net6.0\refint\WSUniversalLib.dll
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\obj\Debug\net6.0\WSUniversalLib.pdb
+D:\Programming\Visual studio projects\Матысик\WSUniversalLib\WSUniversalLib\obj\Debug\net6.0\ref\WSUniversalLib.dll
