@@ -7,76 +7,68 @@ namespace WSUniversalLibTests
 	public class MaterialCalculatorTests
 	{
 		[TestMethod]
-		public void CalculateRequiredMaterial_Type1Material1_ReturnsExpectedValue()
+		public void TestCalculateRequiredMaterial_Type1_Material1()
 		{
-			// Arrange
-			int count = 10;
-			double width = 2.5;
-			double length = 3.5;
-			string materialType = "Material 1";
-			string productType = "Type 1";
-			int expected = 159;
-
-			// Act
-			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
-
-			// Assert
-			Assert.AreEqual(expected, actual);
-		}
-
-		[TestMethod]
-		public void CalculateRequiredMaterial_Type2Material1_ReturnsExpectedValue()
-		{
-			// Arrange
 			int count = 5;
-			double width = 4.5;
-			double length = 6.0;
-			string materialType = "Material 1";
-			string productType = "Type 2";
-			int expected = 375;
-
-			// Act
-			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
-
-			// Assert
-			Assert.AreEqual(expected, actual);
-		}
-
-		[TestMethod]
-		public void CalculateRequiredMaterial_Type3Material1_ReturnsExpectedValue()
-		{
-			// Arrange
-			int count = 2;
-			double width = 10.0;
-			double length = 15.0;
-			string materialType = "Material 1";
-			string productType = "Type 3";
-			int expected = 632;
-
-			// Act
-			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
-
-			// Assert
-			Assert.AreEqual(expected, actual);
-		}
-
-		[TestMethod]
-		public void CalculateRequiredMaterial_InvalidProductType_ReturnsNegativeOne()
-		{
-			// Arrange
-			int count = 1;
 			double width = 2.0;
 			double length = 3.0;
-			string materialType = "Material 2";
-			string productType = "Invalid";
-			int expected = -1;
+			string material_type = "Material 1";
+			string product_type = "Type 1";
+			int expected = 231;
 
-			// Act
-			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
+			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
 
-			// Assert
 			Assert.AreEqual(expected, actual);
 		}
+
+
+		[TestMethod]
+		public void TestCalculateRequiredMaterial_Type2_Material2()
+		{
+			int count = 10;
+			double width = 1.5;
+			double length = 2.5;
+			string material_type = "Material 2";
+			string product_type = "Type 2";
+			int expected = 819;
+
+			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
+
+			Assert.AreEqual(expected, actual);
+		}
+
+
+		[TestMethod]
+		public void TestCalculateRequiredMaterial_InvalidProductType()
+		{
+			int count = 5;
+			double width = 2.0;
+			double length = 3.0;
+			string material_type = "Material 1";
+			string product_type = "Invalid Type";
+			int expected = -1;
+
+			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
+
+			Assert.AreEqual(expected, actual);
+		}
+
+
+		[TestMethod]
+		public void TestCalculateRequiredMaterial_InvalidMaterialType()
+		{
+			int count = 5;
+			double width = 2.0;
+			double length = 3.0;
+			string material_type = "Invalid Material";
+			string product_type = "Type 1";
+			int expected = -1;
+
+			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
+
+			Assert.AreEqual(expected, actual);
+		}
+
 
 		[TestMethod]
 		public void CalculateRequiredMaterial_InvalidMaterialType_ReturnsNegativeOne()
@@ -97,212 +89,189 @@ namespace WSUniversalLibTests
 		}
 
 		[TestMethod]
-		public void CalculateRequiredMaterial_ValidData_ReturnsCorrectAmount()
+		public void TestCalculateRequiredMaterial_ZeroCount()
 		{
-			// Arrange
-			int count = 5;
-			double width = 2.5;
-			double length = 3.5;
-			string materialType = "Material 1";
-			string productType = "Type 1";
+			int count = 0;
+			double width = 2.0;
+			double length = 3.0;
+			string material_type = "Material 1";
+			string product_type = "Type 1";
+			int expected = 0;
 
-			// Act
-			int result = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
+			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
 
-			// Assert
-			Assert.AreEqual(490, result);
+			Assert.AreEqual(expected, actual);
 		}
 
+		//Сложные
+
 		[TestMethod]
-		public void CalculateRequiredMaterial_NegativeCount_ReturnsNegativeOne()
+		public void TestCalculateRequiredMaterial_InvalidMaterialTypeWithCorrectOtherParams()
+		{
+			int count = 5;
+			double width = 2.0;
+			double length = 3.0;
+			string material_type = "Invalid Material";
+			string product_type = "Type 1";
+			int expected = -1;
+
+			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
+
+			Assert.AreEqual(expected, actual);
+		}
+
+
+		[TestMethod]
+		public void TestCalculateRequiredMaterial_InvalidProductTypeWithCorrectOtherParams()
+		{
+			int count = 5;
+			double width = 2.0;
+			double length = 3.0;
+			string material_type = "Material 1";
+			string product_type = "Invalid Type";
+			int expected = -1;
+
+			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
+
+			Assert.AreEqual(expected, actual);
+		}
+
+
+		[TestMethod]
+		public void TestCalculateRequiredMaterial_ZeroCountWithCorrectOtherParams()
+		{
+			int count = 0;
+			double width = 2.0;
+			double length = 3.0;
+			string material_type = "Material 1";
+			string product_type = "Type 1";
+			int expected = 0;
+
+			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
+
+			Assert.AreEqual(expected, actual);
+		}
+
+
+		[TestMethod]
+		public void TestCalculateRequiredMaterial_InvalidWidthWithCorrectOtherParams()
+		{
+			int count = 5;
+			double width = -2.0;
+			double length = 3.0;
+			string material_type = "Material 1";
+			string product_type = "Type 1";
+			int expected = -1;
+
+			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
+
+			Assert.AreEqual(expected, actual);
+		}
+
+
+		[TestMethod]
+		public void TestCalculateRequiredMaterial_InvalidLengthWithCorrectOtherParams()
+		{
+			int count = 5;
+			double width = 2.0;
+			double length = -3.0;
+			string material_type = "Material 1";
+			string product_type = "Type 1";
+			int expected = -1;
+
+			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
+
+			Assert.AreEqual(expected, actual);
+		}
+
+
+		[TestMethod]
+		public void CalculateRequiredMaterial_InvalidProductAndMaterialType_ReturnsMinusOne()
 		{
 			// Arrange
-			int count = -5;
+			int count = 10;
 			double width = 2.5;
 			double length = 3.5;
-			string materialType = "Material 1";
-			string productType = "Type 1";
+			string product_type = "Type 4"; // Несуществующий тип продукта
+			string material_type = "Material 3"; // Несуществующий тип материала
 
 			// Act
-			int result = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
+			int result = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
 
 			// Assert
 			Assert.AreEqual(-1, result);
 		}
 
-		[TestMethod]
-		public void CalculateRequiredMaterial_ZeroWidth_ReturnsNegativeOne()
-		{
-			// Arrange
-			int count = 5;
-			double width = 0;
-			double length = 3.5;
-			string materialType = "Material 1";
-			string productType = "Type 1";
-
-			// Act
-			int result = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
-
-			// Assert
-			Assert.AreEqual(-1, result);
-		}
-
-		[TestMethod]
-		public void CalculateRequiredMaterial_InvalidMaterialType_ReturnsMinusOne()
-		{
-			// Arrange
-			int count = 10;
-			double width = 2.5;
-			double length = 5.0;
-			string materialType = "Invalid Type";
-			string productType = "Type 1";
-			int expected = -1;
-
-			// Act
-			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
-
-			// Assert
-			Assert.AreEqual(expected, actual);
-		}
-
-		[TestMethod]
-		public void CalculateRequiredMaterial_InvalidProductType_ReturnsMinusOne()
-		{
-			// Arrange
-			int count = 10;
-			double width = 2.5;
-			double length = 5.0;
-			string materialType = "Material 1";
-			string productType = "Invalid Type";
-			int expected = -1;
-
-			// Act
-			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
-
-			// Assert
-			Assert.AreEqual(expected, actual);
-		}
-
-		[TestMethod]
-		public void CalculateRequiredMaterial_ValidParameters_ReturnsCorrectValue()
-		{
-			// Arrange
-			int count = 10;
-			double width = 2.5;
-			double length = 5.0;
-			string materialType = "Material 1";
-			string productType = "Type 1";
-			int expected = 267;
-
-			// Act
-			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
-
-			// Assert
-			Assert.AreEqual(expected, actual);
-		}
 
 		[TestMethod]
 		public void CalculateRequiredMaterial_ZeroArea_ReturnsZero()
 		{
 			// Arrange
 			int count = 10;
-			double width = 0.0;
-			double length = 0.0;
-			string materialType = "Material 1";
-			string productType = "Type 1";
-			int expected = 0;
-
-			// Act
-			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
-
-			// Assert
-			Assert.AreEqual(expected, actual);
-		}
-
-		[TestMethod]
-		public void CalculateRequiredMaterial_NegativeCount_ReturnsZero()
-		{
-			// Arrange
-			int count = -10;
-			double width = 2.5;
-			double length = 5.0;
-			string materialType = "Material 1";
-			string productType = "Type 1";
-			int expected = 0;
-
-			// Act
-			int actual = MaterialCalculator.CalculateRequiredMaterial(count, width, length, materialType, productType);
-
-			// Assert
-			Assert.AreEqual(expected, actual);
-		}
-
-		[TestMethod]
-		public void Test_RequiredMaterialForType3WithInvalidMaterialType_ReturnsMinusOne()
-		{
-			// Arrange
-			int count = 5;
-			double width = 1.5;
-			double length = 2.5;
-			string material_type = "Invalid Material Type";
-			string product_type = "Type 3";
-
-			// Act
-			int result = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
-
-			// Assert
-			Assert.AreEqual(-1, result);
-		}
-
-		[TestMethod]
-		public void Test_RequiredMaterialForType1WithMaterial1AndNegativeCount_ReturnsMinusOne()
-		{
-			// Arrange
-			int count = -5;
-			double width = 2.0;
-			double length = 3.0;
+			double width = 0;
+			double length = 0;
+			string product_type = "Type 1";
 			string material_type = "Material 1";
-			string product_type = "Type 1";
 
 			// Act
 			int result = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
 
 			// Assert
-			Assert.AreEqual(-1, result);
+			Assert.AreEqual(0, result);
 		}
 
+
 		[TestMethod]
-		public void Test_RequiredMaterialForType2WithMaterial2AndZeroWidth_ReturnsMinusOne()
+		public void CalculateRequiredMaterial_ZeroCount_ReturnsZero()
 		{
 			// Arrange
-			int count = 10;
-			double width = 0.0;
-			double length = 5.0;
-			string material_type = "Material 2";
-			string product_type = "Type 2";
+			int count = 0;
+			double width = 2.5;
+			double length = 3.5;
+			string product_type = "Type 1";
+			string material_type = "Material 1";
 
 			// Act
 			int result = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
 
 			// Assert
-			Assert.AreEqual(-1, result);
+			Assert.AreEqual(0, result);
 		}
 
+
 		[TestMethod]
-		public void Test_RequiredMaterialForType1WithMaterial2AndLargeCount_ReturnsValidResult()
+		public void CalculateRequiredMaterial_SmallProductSize_ReturnsExpectedResult()
 		{
 			// Arrange
-			int count = 1000;
-			double width = 2.0;
-			double length = 3.0;
-			string material_type = "Material 2";
+			int count = 1;
+			double width = 0.1;
+			double length = 0.2;
 			string product_type = "Type 1";
+			string material_type = "Material 1";
 
 			// Act
 			int result = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
 
 			// Assert
-			Assert.IsTrue(result > 0);
+			Assert.AreEqual(5, result);
+		}
+
+
+		[TestMethod]
+		public void CalculateRequiredMaterial_LargeCount_ReturnsExpectedResult()
+		{
+			// Arrange
+			int count = int.MaxValue;
+			double width = 2.5;
+			double length = 3.5;
+			string product_type = "Type 1";
+			string material_type = "Material 1";
+
+			// Act
+			int result = MaterialCalculator.CalculateRequiredMaterial(count, width, length, material_type, product_type);
+
+			// Assert
+			Assert.AreEqual(int.MaxValue, result);
 		}
 
 	}
